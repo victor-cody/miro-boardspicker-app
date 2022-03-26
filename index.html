@@ -61,26 +61,42 @@
     <button>Open Boards Picker</button>
     <textarea class="results"></textarea>
     <div class="display-boards"></div>
+    <iframe
+      class="iframe"
+      width="768"
+      height="432"
+      src=""
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen
+    ></iframe>
 
     <script>
       var button = document.querySelector("button");
       var actionSelect = document.querySelector("select");
       var resultsBox = document.querySelector(".results");
       const boardsDisplay = document.querySelector(".display-boards");
+      const iframe = document.querySelector(".iframe");
 
       button.addEventListener("click", () => {
         miroBoardsPicker.open({
           clientId: "3458764521296508373", // Replace it with your app ClientId
           action: actionSelect.value,
           success: (data) => {
-              if (actionSelect.value === "select") {
-                  resultsBox.innerHTML = JSON.stringify(data, null, 4)
+            if (actionSelect.value === "select") {
+              const data = JSON.stringify(data, null, 4);
+              resultsBox.innerHTML = data;
               resultsBox.style.display = "block";
-              } else if (actionSelect.value === "access-link") {
-                  boardsDisplay.innerHTML = JSON.stringify(data?.embedHtml)
-                  boardsDisplay.style.display = "block";
-              }
-          }  ,
+              iframe.setAttribute(
+                "src",
+                `https://miro.com/app/live-embed/${data?.board_id}`
+              );
+            } else if (actionSelect.value === "access-link") {
+              const Iframe = JSON.stringify(data?.embedHtml);
+              Iframe.boardsDisplay.innerHTML = JSON.stringify(data?.embedHtml);
+              boardsDisplay.style.display = "block";
+            }
+          },
         });
       });
     </script>
