@@ -89,7 +89,7 @@
               resultsBox.style.display = "block";
               iframe.setAttribute(
                 "src",
-                `https://miro.com/app/live-embed/${boardsData?.board_id}`
+                `https://miro.com/app/live-embed/${boardsData?.id}`
               );
             } else if (actionSelect.value === "access-link") {
               const Iframe = JSON.stringify(data?.embedHtml);
