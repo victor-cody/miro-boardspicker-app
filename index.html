@@ -60,19 +60,27 @@
     </label>
     <button>Open Boards Picker</button>
     <textarea class="results"></textarea>
+    <div class="display-boards"></div>
 
     <script>
       var button = document.querySelector("button");
       var actionSelect = document.querySelector("select");
       var resultsBox = document.querySelector(".results");
+      const boardsDisplay = document.querySelector(".display-boards");
+
       button.addEventListener("click", () => {
         miroBoardsPicker.open({
           clientId: "3458764521296508373", // Replace it with your app ClientId
           action: actionSelect.value,
           success: (data) => {
-            resultsBox.innerHTML = JSON.stringify(data, null, 4);
-            resultsBox.style.display = "block";
-          },
+              if (actionSelect.value === "select") {
+                  resultsBox.innerHTML = JSON.stringify(data, null, 4)
+              resultsBox.style.display = "block";
+              } else if (actionSelect.value === "access-link") {
+                  boardsDisplay.innerHTML = JSON.stringify(data?.embedHtml)
+                  boardsDisplay.style.display = "block";
+              }
+          }  ,
         });
       });
     </script>
