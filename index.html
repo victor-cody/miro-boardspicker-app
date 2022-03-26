@@ -84,12 +84,12 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              const data = JSON.stringify(data, null, 4);
-              resultsBox.innerHTML = data;
+              const boardsData = JSON.stringify(data, null, 4);
+              resultsBox.innerHTML = boardsData;
               resultsBox.style.display = "block";
               iframe.setAttribute(
                 "src",
-                `https://miro.com/app/live-embed/${data?.board_id}`
+                `https://miro.com/app/live-embed/${boardsData?.board_id}`
               );
             } else if (actionSelect.value === "access-link") {
               const Iframe = JSON.stringify(data?.embedHtml);
