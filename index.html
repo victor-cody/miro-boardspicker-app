@@ -84,17 +84,19 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              const boardsData = JSON.stringify(data, null, 4);
+              console.log(JSON.stringify(data));
+              const boardsData = JSON.stringify(data);
               resultsBox.innerHTML = boardsData;
               resultsBox.style.display = "block";
               iframe.setAttribute(
                 "src",
-                `https://miro.com/app/live-embed/${boardsData?.id}`
+                `https://miro.com/app/live-embed/${JSON.stringify(data?.id)}`
               );
             } else if (actionSelect.value === "access-link") {
+              console.log(JSON.stringify(data));
               const Iframe = JSON.stringify(data?.embedHtml);
-              Iframe.boardsDisplay.innerHTML = JSON.stringify(data?.embedHtml);
               boardsDisplay.style.display = "block";
+              boardsDisplay.innerHTML = Iframe;
             }
           },
         });
