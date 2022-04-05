@@ -1,0 +1,53 @@
+body {
+  font-family: Arial;
+  font-size: 14px;
+  background: hsl(0, 0%, 96%);
+  padding: 10px;
+  width: 100vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+select {
+  font-family: Arial;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: 14px;
+  height: 32px;
+  background-color: white;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+button {
+  font-family: Arial;
+  display: inline-block;
+  vertical-align: baseline;
+  font-size: 14px;
+  height: 32px;
+  background-color: white;
+  margin-left: 12px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+select:hover,
+button:hover {
+  border: 1px solid #333;
+}
+.results {
+  margin-top: 20px;
+  white-space: pre;
+  display: none;
+  width: 100%;
+  height: 200px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-family: Arial;
+  font-size: 12px;
+  resize: none;
+}
+.container {
+  width: 90vw;
+  height: 400px;
+  margin: 1rem auto;
+}
