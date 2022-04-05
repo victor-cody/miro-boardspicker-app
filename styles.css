@@ -13,7 +13,7 @@ select {
   font-family: Arial;
   display: inline-block;
   vertical-align: baseline;
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 32px;
   background-color: white;
   border: 1px solid #999;
@@ -23,7 +23,7 @@ button {
   font-family: Arial;
   display: inline-block;
   vertical-align: baseline;
-  font-size: 1.25rem;
+  font-size: 1rem;
   height: 32px;
   background-color: white;
   margin-left: 12px;
@@ -36,11 +36,12 @@ button:hover {
 }
 .results {
   margin: 1rem auto;
+  font-size: 1rem;
   margin-top: 20px;
   white-space: pre;
   display: none;
-  width: 80%;
-  height: 150px;
+  width: 70%;
+  height: 80px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   font-family: Arial;

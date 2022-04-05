@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Boards picker demo</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://miro.com/app/static/boardsPicker.1.0.js"></script>
   </head>
   <body>
@@ -41,14 +41,11 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              console.log(JSON.stringify(data, 4, null));
+              console.log(JSON.stringify(data, null, 4));
               const boardsData = JSON.stringify(data);
               resultsBox.innerHTML = boardsData;
               resultsBox.style.display = "block";
-              iframe.setAttribute(
-                "src",
-                `${JSON.stringify(data?.viewLink)}`
-              );
+              iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
             }
             if (actionSelect.value === "access-link") {
               console.log(JSON.stringify(data));
