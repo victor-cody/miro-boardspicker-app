@@ -60,8 +60,8 @@
     </label>
     <button>Open Boards Picker</button>
     <textarea class="results"></textarea>
-    <div class="display-boards"></div>
-    <iframe
+    <div class="container"></div>
+    <!-- <iframe
       class="iframe"
       width="768"
       height="432"
@@ -69,13 +69,13 @@
       frameborder="0"
       scrolling="no"
       allowfullscreen
-    ></iframe>
+    ></iframe> -->
 
     <script>
       var button = document.querySelector("button");
       var actionSelect = document.querySelector("select");
       var resultsBox = document.querySelector(".results");
-      const boardsDisplay = document.querySelector(".display-boards");
+      const boardsDisplay = document.querySelector(".container");
       const iframe = document.querySelector(".iframe");
 
       button.addEventListener("click", () => {
@@ -84,19 +84,21 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              console.log(JSON.stringify(data));
+              console.log(JSON.stringify(data, 4, null));
               const boardsData = JSON.stringify(data);
               resultsBox.innerHTML = boardsData;
               resultsBox.style.display = "block";
-              iframe.setAttribute(
-                "src",
-                `https://miro.com/app/live-embed/${JSON.stringify(data?.id)}`
-              );
-            } else if (actionSelect.value === "access-link") {
+              // iframe.setAttribute(
+              //   "src",
+              //   `https://miro.com/app/live-embed/${JSON.stringify(data?.id)}`
+              // );
+            }
+            if (actionSelect.value === "access-link") {
               console.log(JSON.stringify(data));
-              const Iframe = JSON.stringify(data?.embedHtml);
-              boardsDisplay.style.display = "block";
-              boardsDisplay.innerHTML = Iframe;
+              document.querySelector(".container").innerHTML = data.embedHtml;
+              // const Iframe = JSON.stringify(data?.embedHtml);
+              // boardsDisplay.style.display = "block";
+              // boardsDisplay.innerHTML = Iframe;
             }
           },
         });
