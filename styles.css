@@ -1,19 +1,19 @@
 body {
   font-family: Arial;
-  font-size: 14px;
-  background: hsl(0, 0%, 96%);
+  font-size: 1rem;
+  background: hsl(0, 0%, 100%);
   padding: 10px;
   width: 100vw;
-  display: flex;
+  /* display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: center; */
 }
 select {
   font-family: Arial;
   display: inline-block;
   vertical-align: baseline;
-  font-size: 14px;
+  font-size: 1.2rem;
   height: 32px;
   background-color: white;
   border: 1px solid #999;
@@ -23,7 +23,7 @@ button {
   font-family: Arial;
   display: inline-block;
   vertical-align: baseline;
-  font-size: 14px;
+  font-size: 1.25rem;
   height: 32px;
   background-color: white;
   margin-left: 12px;
@@ -35,11 +35,12 @@ button:hover {
   border: 1px solid #333;
 }
 .results {
+  margin: 1rem auto;
   margin-top: 20px;
   white-space: pre;
   display: none;
-  width: 100%;
-  height: 200px;
+  width: 80%;
+  height: 150px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   font-family: Arial;
