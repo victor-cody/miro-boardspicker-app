@@ -47,6 +47,12 @@
         font-size: 12px;
         resize: none;
       }
+      .container {
+        width: 90vw;
+        height: auto;
+        margin: 1rem auto;
+
+      }
     </style>
     <script src="https://miro.com/app/static/boardsPicker.1.0.js"></script>
   </head>
@@ -61,15 +67,15 @@
     <button>Open Boards Picker</button>
     <textarea class="results"></textarea>
     <div class="container"></div>
-    <!-- <iframe
+    <iframe
       class="iframe"
-      width="768"
-      height="432"
+      width="1768"
+      height="832"
       src=""
       frameborder="0"
       scrolling="no"
       allowfullscreen
-    ></iframe> -->
+    ></iframe>
 
     <script>
       var button = document.querySelector("button");
@@ -88,17 +94,14 @@
               const boardsData = JSON.stringify(data);
               resultsBox.innerHTML = boardsData;
               resultsBox.style.display = "block";
-              // iframe.setAttribute(
-              //   "src",
-              //   `https://miro.com/app/live-embed/${JSON.stringify(data?.id)}`
-              // );
+              iframe.setAttribute(
+                "src",
+                `${JSON.stringify(data?.viewLink)}`
+              );
             }
             if (actionSelect.value === "access-link") {
               console.log(JSON.stringify(data));
               document.querySelector(".container").innerHTML = data.embedHtml;
-              // const Iframe = JSON.stringify(data?.embedHtml);
-              // boardsDisplay.style.display = "block";
-              // boardsDisplay.innerHTML = Iframe;
             }
           },
         });
