@@ -18,7 +18,7 @@
     <textarea class="results"></textarea>
     <div class="container"></div>
     <iframe
-    class="iframe"
+      class="iframe"
       width="768"
       height="432"
       src=""
@@ -36,14 +36,18 @@
           clientId: "3458764521296508373", // Replace it with your app ClientId
           action: actionSelect.value,
           success: (data) => {
-            const d = JSON.parse(data)
             if (actionSelect.value === "select") {
               document.querySelector(".results").innerHTML = JSON.stringify(
                 data,
                 null,
                 4
               );
-              document.querySelector(".iframe").setAttribute("src", `https://miro.com/app/live-embed/${data?.id}/`)
+              document
+                .querySelector(".iframe")
+                .setAttribute(
+                  "src",
+                  `https://miro.com/app/live-embed/${data?.id}/`
+                );
               // iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
             }
             if (actionSelect.value === "access-link") {
