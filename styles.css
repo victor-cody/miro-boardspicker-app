@@ -34,20 +34,6 @@ select:hover,
 button:hover {
   border: 1px solid #333;
 }
-.results {
-  margin: 1rem auto;
-  font-size: 1rem;
-  margin-top: 20px;
-  white-space: pre;
-  display: none;
-  width: 70%;
-  height: 80px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-  font-family: Arial;
-  font-size: 12px;
-  resize: none;
-}
 .container {
   width: 90vw;
   height: 400px;

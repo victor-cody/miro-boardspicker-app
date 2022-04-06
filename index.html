@@ -15,17 +15,7 @@
       </select>
     </label>
     <button>Open Boards Picker</button>
-    <textarea class="results"></textarea>
     <div class="container"></div>
-    <iframe
-      class="iframe"
-      width="768"
-      height="432"
-      src=""
-      frameborder="0"
-      scrolling="no"
-      allowfullscreen
-    ></iframe>
 
     <script>
       var button = document.querySelector("button");
@@ -37,18 +27,17 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              document.querySelector(".results").innerHTML = JSON.stringify(
-                data,
-                null,
-                4
-              );
-              document
-                .querySelector(".iframe")
-                .setAttribute(
-                  "src",
-                  `https://miro.com/app/live-embed/${data?.id}/`
-                );
-              // iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
+              conloe.log(JSON.stringify(data, null, 4));
+              document.querySelector(".container").innerHTML = `
+                <iframe
+                class="iframe"
+                width="768"
+                height="432"
+                src="https://miro.com/app/live-embed/${data?.id}/"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen
+              ></iframe>`;
             }
             if (actionSelect.value === "access-link") {
               document.querySelector(".container").innerHTML = data?.embedHtml;
