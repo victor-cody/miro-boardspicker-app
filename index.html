@@ -27,7 +27,7 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              conloe.log(JSON.stringify(data, null, 4));
+              console.log(JSON.stringify(data, null, 4));
               document.querySelector(".container").innerHTML = `
                 <iframe
                 class="iframe"
