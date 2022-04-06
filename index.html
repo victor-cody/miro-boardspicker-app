@@ -41,11 +41,9 @@
           action: actionSelect.value,
           success: (data) => {
             if (actionSelect.value === "select") {
-              console.log(JSON.stringify(data, null, 4));
-              const boardsData = JSON.stringify(data);
-              resultsBox.innerHTML = boardsData;
+              resultsBox.innerHTML = JSON.stringify(data, null, 4);
               resultsBox.style.display = "block";
-              iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
+              // iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
             }
             if (actionSelect.value === "access-link") {
               console.log(JSON.stringify(data));
