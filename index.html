@@ -36,13 +36,14 @@
           clientId: "3458764521296508373", // Replace it with your app ClientId
           action: actionSelect.value,
           success: (data) => {
+            const d = JSON.parse(data)
             if (actionSelect.value === "select") {
               document.querySelector(".results").innerHTML = JSON.stringify(
                 data,
                 null,
                 4
               );
-              document.querySelector(".iframe").setAttribute("src", `https://miro.com/app/live-embed/${data?.id}/?moveToViewport=-23165,-5837,13803,7546`)
+              document.querySelector(".iframe").setAttribute("src", `https://miro.com/app/live-embed/${d?.id}/?moveToViewport=-23165,-5837,13803,7546`)
               // iframe.setAttribute("src", `${JSON.stringify(data?.viewLink)}`);
             }
             if (actionSelect.value === "access-link") {
